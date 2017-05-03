@@ -1,0 +1,32 @@
+class Kingdom
+  attr_reader :name
+  attr_reader :emblum
+  attr_reader :king
+  attr_reader :allies
+
+  def initialize(name, emblum, king = "")
+    @name = name
+    @emblum = emblum
+    @king = king
+    @allies = []
+  end
+
+  def send(from_kingdom, message)
+    if accept_ally? message
+      self.add_ally from_kingdom
+      from_kingdom.add_ally self
+    end
+
+  end
+
+  def add_ally(kingdom)
+    @allies << kingdom
+  end
+
+  :private
+
+  def accept_ally?(message)
+    return false if message.nil?
+    message.length == (message.downcase.chars - @emblum.downcase.chars).length + @emblum.length
+  end
+end
