@@ -25,5 +25,15 @@ describe Universe do
 
       expect(subject.ruler).to eq(space)
     end
+
+    it 'when kingdom has more than 3 allies' do
+      subject.send(Letter.new('Space', 'Air', "Let’s swing the sword together"))
+      subject.send(Letter.new('Space', 'Land', 'Die or play the tame of thrones'))
+      subject.send(Letter.new('Space', 'Ice', 'Ahoy! Fight for me with men and money'))
+      subject.send(Letter.new('Space', 'Water', 'Summer is coming'))
+      subject.send(Letter.new('Space', 'Fire', 'Drag on Martin!'))
+
+      expect(subject.ruler).to eq(space)
+    end
   end
 end

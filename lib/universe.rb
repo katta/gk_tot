@@ -6,7 +6,7 @@ class Universe
     kingdoms.each {|kingdom| @kingdoms[kingdom.name.downcase] = kingdom}
   end
 
-  def ruler
+  def ruler    
     @kingdoms.values.select { |kingdom| kingdom.allies.length >=3 }.first
   end
 

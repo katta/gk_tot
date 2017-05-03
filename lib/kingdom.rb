@@ -25,6 +25,6 @@ class Kingdom
 
   def accept_ally?(message)
     return false if message.nil?
-    message.length == (message.downcase.chars - @emblum.downcase.chars).length + @emblum.length
+    message.length >= (message.downcase.chars - @emblum.downcase.chars).length + @emblum.length
   end
 end
