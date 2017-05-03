@@ -9,12 +9,20 @@ describe Universe do
   let(:ice) { Kingdom.new('ICE', 'Mammoth') }
   let(:air) { Kingdom.new('AIR', 'Owl') }
   let(:fire) { Kingdom.new('FIRE', 'Dragon') }
-  subject { universe = Universe.new([space, land, water, ice, air, fire]) }
+  subject { Universe.new([space, land, water, ice, air, fire]) }
 
-  context 'should have no ruler' do
-    it 'when no kindom has more than 3 allies' do
+  context 'should not have a ruler' do
+    it 'when none of the kindoms has allies' do
       expect(subject.ruler).to eq(nil)
     end
+
+    it 'when none of the kindoms has at least 3 allies' do
+      subject.send(Letter.new('Space', 'Air', 'oaaawaala'))
+      subject.send(Letter.new('Space', 'Land', 'a1d22n333a4444p'))
+
+      expect(subject.ruler).to eq(nil)
+    end
+
   end
 
   context 'should have a ruler' do
@@ -24,6 +32,8 @@ describe Universe do
       subject.send(Letter.new('Space', 'Ice', 'zmzmzmzaztzozh'))
 
       expect(subject.ruler).to eq(space)
+      expect(subject.ruler.allies.length).to eql(3)
+      expect(subject.ruler.allies).to include(air, land, ice)
     end
 
     it 'when kingdom has more than 3 allies' do
@@ -34,6 +44,8 @@ describe Universe do
       subject.send(Letter.new('Space', 'Fire', 'Drag on Martin!'))
 
       expect(subject.ruler).to eq(space)
+      expect(subject.ruler.allies.length).to eql(4)
+      expect(subject.ruler.allies).to include(air, land, ice, fire)
     end
   end
 end

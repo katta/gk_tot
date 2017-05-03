@@ -17,7 +17,7 @@ describe Kingdom do
     end
   end
 
-  context 'should not accept as ally' do
+  context 'should not accept ally' do
     it 'when emblum is not found in message' do
       subject.send(ice, 'a1d22n3334444P')
       expect(subject.allies).not_to include(ice)
