@@ -16,14 +16,12 @@ class Kingdom
       self.add_ally from_kingdom
       from_kingdom.add_ally self
     end
-
-  end
-
-  def add_ally(kingdom)
-    @allies << kingdom
   end
 
   :private
+  def add_ally(kingdom)
+    @allies << kingdom
+  end
 
   def accept_ally?(message)
     return false if message.nil?
