@@ -6,24 +6,24 @@ describe Kingdom do
   subject { Kingdom.new('LAND', 'Panda') }
 
   context 'should accept ally' do
-    it 'when emblum is found in message' do
+    it 'when animal is found in message' do
       subject.send(ice, 'a1d22n333a4444P')
       expect(subject.allies).to include(ice)
     end
 
-    it 'when emblum is found in message irrespective of case' do
+    it 'when animal is found in message irrespective of case' do
       subject.send(ice, 'a1d22n333a4444p')
       expect(subject.allies).to include(ice)
     end
   end
 
   context 'should not accept ally' do
-    it 'when emblum is not found in message' do
+    it 'when animal is not found in message' do
       subject.send(ice, 'a1d22n3334444P')
       expect(subject.allies).not_to include(ice)
     end
 
-    it 'when emblum is not found in message irrespective of case' do
+    it 'when animal is not found in message irrespective of case' do
       subject.send(ice, 'a1d22n3334444p')
       expect(subject.allies).not_to include(ice)
     end

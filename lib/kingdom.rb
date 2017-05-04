@@ -12,7 +12,7 @@ class Kingdom
   end
 
   def send(from_kingdom, message)
-    if accept_ally? message
+    if accept_allegiance? message
       self.add_ally from_kingdom
       from_kingdom.add_ally self
     end
@@ -23,7 +23,7 @@ class Kingdom
     @allies << kingdom
   end
 
-  def accept_ally?(message)
+  def accept_allegiance?(message)
     return false if message.nil?
     message.length >= (message.downcase.chars - @emblum.downcase.chars).length + @emblum.length
   end

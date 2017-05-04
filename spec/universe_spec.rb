@@ -9,7 +9,7 @@ describe Universe do
   let(:ice) { Kingdom.new('ICE', 'Mammoth') }
   let(:air) { Kingdom.new('AIR', 'Owl') }
   let(:fire) { Kingdom.new('FIRE', 'Dragon') }
-  subject { Universe.new([space, land, water, ice, air, fire]) }
+  subject { Universe.new('Southeros', [space, land, water, ice, air, fire]) }
 
   context 'should not have a ruler' do
     it 'when none of the kindoms has allies' do

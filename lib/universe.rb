@@ -1,12 +1,14 @@
 class Universe
+  attr_reader :name
   attr_reader :kingdoms
 
-  def initialize(kingdoms)
+  def initialize(name, kingdoms)
+    @name = name
     @kingdoms = Hash.new
     kingdoms.each {|kingdom| @kingdoms[kingdom.name.downcase] = kingdom}
   end
 
-  def ruler    
+  def ruler
     @kingdoms.values.select { |kingdom| kingdom.allies.length >=3 }.first
   end
 
