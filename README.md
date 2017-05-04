@@ -7,11 +7,13 @@
 
 ### Running Tests
 
+Run the following commands after installing the prerequisites from a command line
+
 ```bash
-  bundle install
-  rspec -cf doc
+bundle install
+rspec -cf doc
 ```
 
 ### Executing Scenarios
 
-Modify / add new tests to `spec/universe_spec.rb` with your scenarios and run the tests to validate the result
+Modify or add new tests to `spec/universe_spec.rb` with your scenarios and run the tests to validate the result
